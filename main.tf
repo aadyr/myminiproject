@@ -27,7 +27,7 @@ resource "aws_instance" "instance2" {
   instance_type = "t2.micro"
   count         = 1
   associate_public_ip_address = "true"
-  vpc_security_group_ids = "group3-vpc"
+  vpc_security_group_ids = "sg-09b913b1a06a3a22e"
   subnet_id = "subnet-0c367963f6cb16292"
 
   user_data = <<EOF
