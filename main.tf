@@ -7,7 +7,7 @@ resource "aws_instance" "instances" {
   subnet_id = "subnet-0c367963f6cb16292"
 
   tags = {
-    Name = "aady-webserver-1"
+    Name = "aadywebserver-1"
   }
 }
 resource "aws_instance" "instances" {
@@ -19,7 +19,7 @@ resource "aws_instance" "instances" {
   subnet_id = "subnet-0c367963f6cb16292"
 
   tags = {
-    Name = "aady-webserver-2"
+    Name = "aadywebserver-2"
   }
 }
 resource "aws_instance" "instances" {
@@ -30,16 +30,15 @@ resource "aws_instance" "instances" {
   vpc_security_group_ids = "group3-vpc"
   subnet_id = "subnet-0c367963f6cb16292"
 
-  user_data = 
-  {
+  user_data = <<EOF
      #!/bin/bash
      sudo yum update -y
      sudo yum install pip -y
      sudo python3 -m pip install --user ansible
-  }
+     EOF
 
   tags = {
-    Name = "aady-ansible-server"
+    Name = "aadyansible-server"
   }
 }
 resource "aws_vpc" "aady_vpc" {
