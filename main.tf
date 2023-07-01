@@ -41,23 +41,6 @@ resource "aws_instance" "instance2" {
     Name = "aadyansible-server"
   }
 }
-resource "aws_vpc" "aady_vpc" {
-  cidr_block = "172.16.0.0/16"
-
-  tags = {
-    Name = "aady_vpc"
-  }
-}
-
-resource "aws_subnet" "aady_subnet" {
-  vpc_id            = aws_vpc.my_vpc.id
-  cidr_block        = "172.16.10.0/24"
-  availability_zone = "ap-northeast-1"
-
-  tags = {
-    Name = "aady_subnet"
-  }
-}
 
 resource "aws_security_group" "allow_aady" {
   name        = "allow_aady"
