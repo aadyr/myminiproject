@@ -3,7 +3,7 @@ resource "aws_instance" "instances" {
   ami           = "ami-0fc61db8544a617ed"  # Amazon Linux 2 LTS
   instance_type = "t2.micro"
   associate_public_ip_address = "true"
-  vpc_security_group_ids = "sg-d6a22a98"
+  vpc_security_group_ids = ["sg-d6a22a98"]
   subnet_id = "subnet-50adb50b"
 
   tags = {
@@ -16,7 +16,7 @@ resource "aws_instance" "instance2" {
   instance_type = "t2.micro"
   count         = 1
   associate_public_ip_address = "true"
-  vpc_security_group_ids = "sg-d6a22a98"
+  vpc_security_group_ids = ["sg-d6a22a98"]
   subnet_id = "subnet-50adb50b"
 
   user_data = <<EOF
